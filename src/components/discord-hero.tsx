@@ -1,5 +1,8 @@
+
+'use client';
+
 import { Button } from "@components/ui/button";
-import CountdownTimer from "@components/countdown-timer";
+// import CountdownTimer from "@components/countdown-timer";
 
 export default function DiscordHero() {
   return (
