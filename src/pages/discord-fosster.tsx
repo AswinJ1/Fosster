@@ -13,9 +13,9 @@ export default function DiscordFOSSter() {
     <div className="min-h-screen">
       <FOSSterHeader />
       <DiscordHero />
-      <DiscordSection1 />
-      <Marquee />
       <DiscordSection2 />
+      <DiscordSection1 />
+      {/* <Marquee /> */}
       <DiscordSection3 />
       <DiscordSection4 />
       <DiscordSection5 />
