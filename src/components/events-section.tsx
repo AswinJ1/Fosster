@@ -1,3 +1,6 @@
+'use client';
+import React from 'react';
+
 import { Button } from "@components/ui/button";
 import { ArrowRight, Zap, Users, Wrench, GraduationCap, Mic, Briefcase, Gamepad2 } from "lucide-react";
 

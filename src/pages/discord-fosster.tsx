@@ -6,7 +6,7 @@ import DiscordSection3 from "@components/discord-section-3";
 import DiscordSection4 from "@components/discord-section-4";
 import DiscordSection5 from "@components/discord-section-5";
 import DiscordFooter from "@components/discord-footer";
-import Marquee from "@components/marquee";
+// import Marquee from "@components/marquee";
 import Footer from "@components/footer";
 export default function DiscordFOSSter() {
   return (

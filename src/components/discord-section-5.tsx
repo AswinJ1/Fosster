@@ -1,3 +1,6 @@
+'use client';
+import React from 'react';
+
 export default function DiscordSection5() {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
