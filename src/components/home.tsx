@@ -9,6 +9,7 @@ import DiscordSection4 from "@components/discord-section-4";
 import DiscordSection5 from "@components/discord-section-5";
 import DiscordFooter from "@components/discord-footer";
 import Footer from "@components/footer";
+import Marquee from "./marquee";
 
 export default function Home() {
   return (
@@ -18,10 +19,12 @@ export default function Home() {
       <DiscordSection2 />
       <DiscordSection1 />
       <DiscordSection3 />
+      <Marquee />
       <DiscordSection4 />
       <DiscordSection5 />
       <DiscordFooter />
       <Footer />
+      
     </div>
   );
 }
