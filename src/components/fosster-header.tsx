@@ -4,14 +4,21 @@ import Link from "next/link";
 import { ChevronDown, Menu, X, Calendar, Users, MapPin, Coffee, Zap, Code, MessageCircle, Mic, Building, Gift, Home, Bed, Star, Gamepad2, Bug, Terminal, BookOpen, FileText, Keyboard } from "lucide-react";
 
 // Desktop Menu Component
-function DesktopMenu({ menu }: { menu: any }) {
-  const [isHover, toggleHover] = useState(false);
-  const [nestedHover, setNestedHover] = useState<string | null>(null);
-  
-  const toggleHoverMenu = () => {
-    toggleHover(!isHover);
-  };
-
+function DesktopMenu({ 
+  menu, 
+  isHover, 
+  nestedHover, 
+  onMouseEnter, 
+  onMouseLeave, 
+  onNestedHover 
+}: { 
+  menu: any;
+  isHover: boolean;
+  nestedHover: string | null;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  onNestedHover: (name: string | null) => void;
+}) {
   const hasSubMenu = menu?.subMenu?.length;
   
   // Responsive grid columns based on screen size and item count
@@ -26,19 +33,14 @@ function DesktopMenu({ menu }: { menu: any }) {
   return (
     <li
       className="group/link relative"
-      onMouseEnter={() => {
-        toggleHoverMenu();
-      }}
-      onMouseLeave={() => {
-        toggleHoverMenu();
-        setNestedHover(null);
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       key={menu.name}
     >
       <span className="flex items-center gap-1 hover:bg-black/5 cursor-pointer px-2 xl:px-3 py-1 rounded-xl text-sm xl:text-base">
         {menu.name}
         {hasSubMenu && (
-          <ChevronDown className="mt-[0.6px] group-hover/link:rotate-180 duration-200 w-4 h-4" />
+          <ChevronDown className={`mt-[0.6px] duration-200 w-4 h-4 ${isHover ? 'rotate-180' : ''}`} />
         )}
       </span>
       {hasSubMenu && (
@@ -70,8 +72,8 @@ function DesktopMenu({ menu }: { menu: any }) {
                   {submenu.hasNestedMenu ? (
                     <div
                       className="relative cursor-pointer"
-                      onMouseEnter={() => setNestedHover(submenu.name)}
-                      onMouseLeave={() => setNestedHover(null)}
+                      onMouseEnter={() => onNestedHover(submenu.name)}
+                      onMouseLeave={() => onNestedHover(null)}
                     >
                       <div className="flex items-center gap-x-2 xl:gap-x-3 group/menubox p-2 rounded-md hover:bg-black/5">
                         <div className="bg-black/5 w-fit p-1.5 xl:p-2 rounded-md group-hover/menubox:bg-black group-hover/menubox:text-white duration-300">
@@ -129,7 +131,7 @@ function DesktopMenu({ menu }: { menu: any }) {
   );
 }
 
-// Mobile Menu Component
+// Mobile Menu Component (unchanged)
 function MobMenu({ Menus }: { Menus: any[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState<number | null>(null);
@@ -277,8 +279,12 @@ function MobMenu({ Menus }: { Menus: any[] }) {
   );
 }
 
-// Main Navigation Component
+// Main Navigation Component - FIXED
 export default function FOSSterHeader() {
+  // Centralized state management for desktop menu
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [nestedHover, setNestedHover] = useState<string | null>(null);
+
   const menuData = [
     {
       name: "About",
@@ -328,6 +334,20 @@ export default function FOSSterHeader() {
     }
   ];
 
+  const handleMenuHover = (menuName: string) => {
+    setActiveMenu(menuName);
+    setNestedHover(null); // Reset nested hover when switching menus
+  };
+
+  const handleMenuLeave = () => {
+    setActiveMenu(null);
+    setNestedHover(null);
+  };
+
+  const handleNestedHover = (nestedName: string | null) => {
+    setNestedHover(nestedName);
+  };
+
   return (
     <div className="bg-white text-black sticky top-0 z-50 shadow-sm">
       <nav className="container mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
@@ -340,7 +360,15 @@ export default function FOSSterHeader() {
           {/* Desktop Menu - Hidden on mobile and tablet */}
           <ul className="hidden xl:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
             {menuData.map((menu) => (
-              <DesktopMenu key={menu.name} menu={menu} />
+              <DesktopMenu 
+                key={menu.name} 
+                menu={menu}
+                isHover={activeMenu === menu.name}
+                nestedHover={nestedHover}
+                onMouseEnter={() => handleMenuHover(menu.name)}
+                onMouseLeave={handleMenuLeave}
+                onNestedHover={handleNestedHover}
+              />
             ))}
           </ul>
 
