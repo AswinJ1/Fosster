@@ -37,7 +37,7 @@ function DesktopMenu({
       onMouseLeave={onMouseLeave}
       key={menu.name}
     >
-      <span className="flex items-center gap-1 hover:bg-black/5 cursor-pointer px-2 xl:px-3 py-1 rounded-xl text-sm xl:text-base">
+      <span className="flex items-center gap-1 hover:bg-blue-100 cursor-pointer px-2 xl:px-3 py-1 rounded-xl text-sm xl:text-base transition-colors duration-200">
         {menu.name}
         {hasSubMenu && (
           <ChevronDown className={`mt-[0.6px] duration-200 w-4 h-4 ${isHover ? 'rotate-180' : ''}`} />
@@ -75,8 +75,8 @@ function DesktopMenu({
                       onMouseEnter={() => onNestedHover(submenu.name)}
                       onMouseLeave={() => onNestedHover(null)}
                     >
-                      <div className="flex items-center gap-x-2 xl:gap-x-3 group/menubox p-2 rounded-md hover:bg-black/5">
-                        <div className="bg-black/5 w-fit p-1.5 xl:p-2 rounded-md group-hover/menubox:bg-black group-hover/menubox:text-white duration-300">
+                      <div className="flex items-center gap-x-2 xl:gap-x-3 group/menubox p-2 rounded-md hover:bg-blue-100">
+                        <div className="bg-blue-100 w-fit p-1.5 xl:p-2 rounded-md group-hover/menubox:bg-blue-500 group-hover/menubox:text-white duration-300">
                           {submenu.icon && <submenu.icon size={16} className="xl:w-[18px] xl:h-[18px]" />}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -92,8 +92,8 @@ function DesktopMenu({
                           <div className="grid gap-2">
                             {submenu.nestedItems.map((nestedItem: any, j: number) => (
                               <Link href={`/events/${nestedItem.name}`} key={j}>
-                                <div className="flex items-center gap-x-2 xl:gap-x-3 group/nested p-2 rounded-md hover:bg-black/5">
-                                  <div className="bg-black/5 w-fit p-1.5 xl:p-2 rounded-md group-hover/nested:bg-black group-hover/nested:text-white duration-300">
+                                <div className="flex items-center gap-x-2 xl:gap-x-3 group/nested p-2 rounded-md hover:bg-blue-100">
+                                  <div className="bg-blue-100 w-fit p-1.5 xl:p-2 rounded-md group-hover/nested:bg-blue-500 group-hover/nested:text-white duration-300">
                                     {nestedItem.icon && <nestedItem.icon size={14} className="xl:w-4 xl:h-4" />}
                                   </div>
                                   <div className="min-w-0">
@@ -110,8 +110,8 @@ function DesktopMenu({
                   ) : (
                     <Link href={`/${submenu.name}`}>
                       <div className="relative cursor-pointer">
-                        <div className="flex items-center gap-x-2 xl:gap-x-3 group/menubox p-2 rounded-md hover:bg-black/5">
-                          <div className="bg-black/5 w-fit p-1.5 xl:p-2 rounded-md group-hover/menubox:bg-black group-hover/menubox:text-white duration-300">
+                        <div className="flex items-center gap-x-2 xl:gap-x-3 group/menubox p-2 rounded-md hover:bg-blue-100">
+                          <div className="bg-blue-100 w-fit p-1.5 xl:p-2 rounded-md group-hover/menubox:bg-blue-500 group-hover/menubox:text-white duration-300">
                             {submenu.icon && <submenu.icon size={16} className="xl:w-[18px] xl:h-[18px]" />}
                           </div>
                           <div className="min-w-0">
