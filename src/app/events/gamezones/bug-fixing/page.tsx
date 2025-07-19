@@ -3,8 +3,21 @@ import React from 'react';
 
 export default function BugFixingRaces() {
   return (
-    <section className="w-full bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white py-16 px-6 sm:px-10 lg:px-20">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <section className="relative w-full bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white py-16 px-6 sm:px-10 lg:px-20 overflow-hidden">
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ pointerEvents: 'none' }}
+      >
+        <source src="/BUGR.mp4" type="video/mp4" />
+      </video>
+      {/* Overlay for clarity */}
+      <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
+      <div className="relative z-10 max-w-5xl mx-auto space-y-12">
 
         {/* Header */}
         <div className="text-center">

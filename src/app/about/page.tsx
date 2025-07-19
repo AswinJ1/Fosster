@@ -165,14 +165,18 @@ icon="/about11.png"
           <h3 className="text-3xl font-bold mb-8 text-center text-gray-800">Organized By</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center flex flex-col items-center">
-      <Image src="/amrita.png" alt="Amrita Vishwa Vidyapeetham Logo" width={80} height={80} className="mb-4" />
+      <a href="https://www.amrita.edu/" target="_blank" rel="noopener noreferrer">
+        <Image src="/amrita.png" alt="Amrita Vishwa Vidyapeetham Logo" width={220} height={220} className="mb-4" />
+      </a>
               <h4 className="text-xl font-bold mb-4 text-gray-800">Amrita Vishwa Vidyapeetham</h4>
               <p className="text-gray-600 leading-relaxed">
                 A top-ranked private university in India, Amrita is known for its excellence in engineering, research, and technology-driven social impact.
               </p>
             </div>
             <div className="text-center flex flex-col items-center">
-      <Image src="/amfoss_logo.jpeg" alt="amFOSS Logo" width={80} height={80} className="mb-4" />
+      <a href="https://amfoss.in/" target="_blank" rel="noopener noreferrer">
+        <Image src="/amfoss_logo.jpeg" alt="amFOSS Logo" width={80} height={80} className="mb-4" />
+      </a>
               <h4 className="text-xl font-bold mb-4 text-gray-800">amFOSS</h4>
               <p className="text-gray-600 leading-relaxed">
                 India's leading student-run open-source community, with a legacy of GSoC contributors, global conference participation, and a strong mentorship culture.
@@ -195,9 +199,9 @@ icon="/about11.png"
             <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-blue-100 hover:scale-105 hover:shadow-md">
               Register Now
             </button>
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-blue-100 hover:scale-105 hover:shadow-md">
-              Sponsor Us
-            </button>
+            <a href="/sponsor" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-blue-100 hover:scale-105 hover:shadow-md flex items-center justify-center" style={{ textDecoration: 'none' }}>
+    Sponsor Us
+  </a>
             <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-blue-100 hover:scale-105 hover:shadow-md">
               Call for Speakers
             </button>
