@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button } from "@components/ui/button";
@@ -58,9 +57,10 @@ export default function DiscordHero() {
             </div> */}
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                onClick={() => window.location.href = '/attend'}
               >
                 Register Now
               </Button>

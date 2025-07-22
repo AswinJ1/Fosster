@@ -156,10 +156,10 @@ export default function DiscordSection3() {
               {/* Responsive Card Grid */}
                         <div className="w-full overflow-hidden">
                           {/* Desktop view - Grid */}
-                          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          <div className="hidden md:grid grid-cols-4 gap-6">
                             {goals.map((g, index) => (
                               <GoalCard key={index} className="p-3">
-                                <Fade triggerOnce direction={index%2===0 ? "up" : "down"} delay={index*350}>
+                                <Fade triggerOnce direction={index % 2 === 0 ? "up" : "down"} delay={index * 350}>
                                   <div className="mb-4">
                                     <img alt="illustration" draggable="false" src={g.cover} />
                                   </div>
