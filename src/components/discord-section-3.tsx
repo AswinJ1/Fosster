@@ -44,31 +44,31 @@ export default function DiscordSection3() {
   const goals = [
     {
       cover: "/talks.png",
-      text: "Lightning Talks – Fast-paced 10-minute presentations to share open-source ideas, tools, and stories.",
+      text: "Fast-paced 10-minute presentations to share open-source ideas, tools, and stories.",
     },
     {
       cover: "/panel.png",
-      text: "Panel Discussions – Expert-led dialogues on governance, inclusion, and the future of open source.",
+      text: " Expert-led dialogues on governance, inclusion, and the future of open source.",
     },
     {
       cover: "/techh.png",
-      text: "Tech Workshops – Hands-on sessions to build real-world skills in open-source technologies.",
+      text: "Hands-on sessions to build real-world skills in open-source technologies.",
     },
     {
       cover: "/opens.png",
-      text: "Open Source 101 – Beginner-focused training led by AmFOSS to help newcomers make their first contributions.",
+      text: " Beginner-focused training led by AmFOSS to help newcomers make their first contributions.",
     },
     {
       cover: "/speakerr.png",
-      text: "Speaker Sessions – Deep-dive talks by open-source leaders and project maintainers.",
+      text: "Deep-dive talks by open-source leaders and project maintainers.",
     },
     {
       cover: "/job.png",
-      text: "Job Fair – Meet top tech employers hiring open-source contributors and developers.",
+      text: "Meet top tech employers hiring open-source contributors and developers.",
     },
     {
       cover: "/zone.png",
-      text: "Game Zone – Coding challenges, quizzes, and contests with prizes, running throughout the event.",
+      text: "Coding challenges, quizzes, and contests with prizes, running throughout the event.",
     },
   ];
   return (
@@ -156,7 +156,7 @@ export default function DiscordSection3() {
               {/* Responsive Card Grid */}
                         <div className="w-full overflow-hidden">
                           {/* Desktop view - Grid */}
-                          <div className="hidden md:grid grid-cols-4 gap-6">
+                          <div className="hidden md:grid grid-cols-3 gap-6">
                             {goals.map((g, index) => (
                               <GoalCard key={index} className="p-3">
                                 <Fade triggerOnce direction={index % 2 === 0 ? "up" : "down"} delay={index * 350}>

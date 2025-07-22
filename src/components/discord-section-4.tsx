@@ -1,7 +1,54 @@
 'use client';
-import React from 'react';
+import React, { JSX, useState } from 'react';
+import { GraduationCap, Server, Users } from 'lucide-react';
+
+type Section = {
+  id: number;
+  icon: JSX.Element;
+  title: string;
+  content: JSX.Element;
+}
+
+const sections: Section[] = [
+  {
+    id: 1,
+    icon: <GraduationCap className="text-blue-500 w-6 h-6" />,
+    title: 'Students',
+    content: (
+      <p>
+        Jumpstart your open-source journey, gain hands-on experience, and connect with mentors to develop your skills and career.
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    icon: <Server className="text-green-600 w-6 h-6" />,
+    title: 'DevOps Professionals',
+    content: (
+      <p>
+        Discover the latest open-source tools and best practices to streamline workflows and improve infrastructure management.
+      </p>
+    ),
+  },
+  {
+    id: 3,
+    icon: <Users className="text-purple-500 w-6 h-6" />,
+    title: 'Community Members',
+    content: (
+      <p>
+        Expand your network, share your knowledge, and help grow a vibrant, inclusive open-source ecosystem.
+      </p>
+    ),
+  },
+];
 
 export default function DiscordSection4() {
+  const [openSection, setOpenSection] = useState<number | null>(null);
+
+  const toggleSection = (id: number) => {
+    setOpenSection(prev => (prev === id ? null : id));
+  };
+
   return (
     <section className="py-20 bg-gray-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,30 +60,31 @@ export default function DiscordSection4() {
               ATTEND?
             </h2>
             
-            <div className="space-y-6 max-w-lg">
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-[hsl(235,85%,64%)] rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
-                  <h3 className="text-xl font-bold text-gray-900">Students</h3>
+            <div className="space-y-4 max-w-lg">
+              {sections.map(({ id, icon, title, content }) => (
+                <div
+                  key={id}
+                  className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:shadow-md transition"
+                >
+                  <button
+                    onClick={() => toggleSection(id)}
+                    className="flex items-center justify-between w-full text-left"
+                  >
+                    <div className="flex items-center gap-3">
+                      {icon}
+                      <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+                    </div>
+                    <span className="text-gray-400 text-xl">
+                      {openSection === id ? '−' : '+'}
+                    </span>
+                  </button>
+                  {openSection === id && (
+                    <div className="mt-4 text-gray-700">
+                      {content}
+                    </div>
+                  )}
                 </div>
-                <p className="text-gray-600 ml-11">Jumpstart your open-source journey, gain hands-on experience, and connect with mentors to develop your skills and career.</p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-[hsl(235,85%,64%)] rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
-                  <h3 className="text-xl font-bold text-gray-900">DevOps Professionals</h3>
-                </div>
-                <p className="text-gray-600 ml-11">Discover the latest open-source tools and best practices to streamline workflows and improve infrastructure management.</p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-[hsl(235,85%,64%)] rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
-                  <h3 className="text-xl font-bold text-gray-900">Community Members</h3>
-                </div>
-                <p className="text-gray-600 ml-11">Expand your network, share your knowledge, and help grow a vibrant, inclusive open-source ecosystem.</p>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -44,15 +92,7 @@ export default function DiscordSection4() {
           <div className="relative flex justify-center lg:justify-end order-1 lg:order-2">
             {/* Mobile Device */}
             <div className="relative">
-<img src="/whoo.png" alt="" />             
-              
-              {/* Floating elements */}
-              {/* <div className="absolute -top-6 -left-6 w-14 h-14 bg-green-400 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                <span className="text-white text-xl">💚</span>
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center shadow-lg transform rotate-12">
-                <span className="text-white text-xs font-bold">99+</span>
-              </div> */}
+              <img src="/whoo.png" alt="" />             
             </div>
           </div>
         </div>

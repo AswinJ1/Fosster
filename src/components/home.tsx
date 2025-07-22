@@ -8,6 +8,9 @@ import DiscordSection3 from "@components/discord-section-3";
 import DiscordSection4 from "@components/discord-section-4";
 import DiscordSection5 from "@components/discord-section-5";
 import DiscordFooter from "@components/discord-footer";
+// import { GlowingEffectDemo } from "@components/ui/glowingeffectdemo";
+// import { GlowingEffectDemo } from "./glowingeffectdemo";
+import { BackgroundBeamsWithCollisionDemo } from "./herocomponent";
 // import Footer from "@components/footer";
 import Marquee from "./marquee";
 
@@ -15,14 +18,17 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* <FOSSterHeader /> */}
-      <DiscordHero />
+      {/* <DiscordHero /> */}
+      <BackgroundBeamsWithCollisionDemo />
       <DiscordSection2 />
       <DiscordSection1 />
       <DiscordSection3 />
-      <Marquee />
+      {/* <Marquee /> */}
+       {/* <GlowingEffectDemo /> */}
       <DiscordSection4 />
       <DiscordSection5 />
       <DiscordFooter />
+     
       {/* <Footer /> */}
       
     </div>

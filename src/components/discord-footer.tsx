@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { Button } from "@components/ui/button";
+import GradientCursor from "./gradientcursor";
+import { useState } from 'react';
 
 export default function DiscordFooter() {
+      const [isActive, setIsActive] = useState(false);
+
   return (
     <section className="py-20 bg-gradient-to-br from-[hsl(223,21%,8%)] to-[hsl(235,30%,15%)] relative overflow-hidden">
       {/* Background elements */}
@@ -14,16 +18,18 @@ export default function DiscordFooter() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Main CTA Content */}
         <div className="space-y-8 mb-5">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+          <h2  onMouseOver={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}  className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
             READY TO START YOUR<br />
             OPEN SOURCE JOURNEY?
           </h2>
+                      
+
           
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             FOSSter has the tools and community to support you from your first commit to maintaining major projects.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          {/* <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link href="/attend" passHref>
               <Button
                 size="lg"
@@ -32,7 +38,7 @@ export default function DiscordFooter() {
                 Register for FOSSter 2025
               </Button>
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* 3D Character Illustrations */}
@@ -76,6 +82,7 @@ export default function DiscordFooter() {
             </div>
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/20 rounded-full blur-sm"></div>
           </div> */}
+          
         </div>
 
         {/* Footer Navigation */}
@@ -127,6 +134,7 @@ export default function DiscordFooter() {
           </div>
         </div> */}
       {/* </div> */}
+      <GradientCursor isActive={isActive}/>
     </section>
   );
 }
