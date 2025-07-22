@@ -61,7 +61,7 @@ const OpenSource101 = () => {
         {points.map(({ icon, title, description }, idx) => (
           <div
             key={idx}
-            className="p-6 border border-gray-200 rounded-xl shadow-sm bg-white hover:shadow-md transition"
+            className={`p-6 border border-gray-200 rounded-xl shadow-sm transition hover:shadow-md bg-blue-50`}
           >
             <div className="flex items-center gap-4 mb-3">
               {icon}

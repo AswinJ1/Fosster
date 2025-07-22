@@ -39,7 +39,7 @@ export default function DiscordSection2() {
             <div className="relative">
                 <div className="relative">
                              <Fade triggerOnce direction="up" delay={350}>
-                          <img src="/think.png" alt="Coder" className="w-full h-full object-cover rounded-2xl" />
+                          <img src="/two.png" alt="Coder" className="w-full h-full object-cover rounded-2xl" />
                           </Fade>
                           </div>
               

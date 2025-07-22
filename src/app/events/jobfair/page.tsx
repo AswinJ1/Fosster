@@ -92,7 +92,7 @@ const JobFair = () => {
           {attendeeBenefits.map(({ icon, title, description }, idx) => (
             <div
               key={idx}
-              className="p-6 border border-gray-200 rounded-xl bg-white shadow-sm hover:shadow-md transition"
+              className="p-6 border border-gray-200 rounded-xl bg-blue-50 shadow-sm hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-2">
                 {icon}
@@ -116,7 +116,7 @@ const JobFair = () => {
           {companyBenefits.map(({ icon, title, description }, idx) => (
             <div
               key={idx}
-              className="p-6 border border-gray-200 rounded-xl bg-white shadow-sm hover:shadow-md transition"
+              className="p-6 border border-gray-200 rounded-xl bg-blue-50 shadow-sm hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-2">
                 {icon}

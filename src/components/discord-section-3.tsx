@@ -43,21 +43,33 @@ const GoalCard = styled.div`
 export default function DiscordSection3() {
   const goals = [
     {
-      "cover": "/women_cut_barriers.jpg",
-      "text": "Create a comfortable space & platform to encourage women to women communication and shared learning",
+      cover: "/lightning_talks.jpg",
+      text: "Lightning Talks – Fast-paced 10-minute presentations to share open-source ideas, tools, and stories.",
     },
     {
-      "cover": "/women_dark_bg.jpg",
-      "text": "Promote cybersecurity, and the role of the next generation of women and girls in making the world a safer place"
+      cover: "/panel_discussions.jpg",
+      text: "Panel Discussions – Expert-led dialogues on governance, inclusion, and the future of open source.",
     },
     {
-      "cover": "/women_flag.jpg",
-      "text": "Train and upskill women in cybersecurity using CTF as the entry-point."
+      cover: "/tech_workshops.jpg",
+      text: "Tech Workshops – Hands-on sessions to build real-world skills in open-source technologies.",
     },
     {
-      "cover": "/women_connections.jpg",
-      "text": "Facilitate mentorship, learning, personal growth, career growth, and community amongst the women participants"
-    }
+      cover: "/open_source_101.jpg",
+      text: "Open Source 101 – Beginner-focused training led by AmFOSS to help newcomers make their first contributions.",
+    },
+    {
+      cover: "/speaker_sessions.jpg",
+      text: "Speaker Sessions – Deep-dive talks by open-source leaders and project maintainers.",
+    },
+    {
+      cover: "/job_fair.jpg",
+      text: "Job Fair – Meet top tech employers hiring open-source contributors and developers.",
+    },
+    {
+      cover: "/game_zone.jpg",
+      text: "Game Zone – Coding challenges, quizzes, and contests with prizes, running throughout the event.",
+    },
   ];
   return (
     <section className="py-20 bg-white relative overflow-hidden">
