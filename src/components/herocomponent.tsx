@@ -1,7 +1,18 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 import { BackgroundBeamsWithCollision } from "@components/ui/background-beams-with-collision";
 
 export function BackgroundBeamsWithCollisionDemo() {
+  const router = useRouter();
+
+  const handleRegisterClick = () => {
+    router.push('/attend');
+  };
+
+  const handleSponsorClick = () => {
+    router.push('/sponsor');
+  };
+
   return (
     <BackgroundBeamsWithCollision>
       <div className="text-center relative z-20">
@@ -25,10 +36,16 @@ export function BackgroundBeamsWithCollisionDemo() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={handleRegisterClick}
+            className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
             Register Now
           </button>
-          <button className="px-8 py-3 bg-transparent border-2 border-indigo-500 text-indigo-500 dark:text-indigo-400 font-semibold rounded-lg hover:bg-indigo-500 hover:text-white transition-all duration-300">
+          <button 
+            onClick={handleSponsorClick}
+            className="px-8 py-3 bg-transparent border-2 border-indigo-500 text-indigo-500 dark:text-indigo-400 font-semibold rounded-lg hover:bg-indigo-500 hover:text-white transition-all duration-300"
+          >
             Sponsor Us
           </button>
           <button className="px-8 py-3 bg-transparent border-2 border-blue-500 text-blue-500 dark:text-blue-400 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300">

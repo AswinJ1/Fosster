@@ -26,9 +26,9 @@ export default function DiscordSection2() {
                 Whether you're making your first Git commit or scaling global projects, FOSSter is where contribution meets community — through hands-on workshops, real-world challenges, and conversations that matter.
               </p>
               <div className="pt-4">
-                <a href="#" className="text-[hsl(235,85%,64%)] font-semibold hover:underline">
-                  Discover the FOSSter Experience →
-                </a>
+                <button className="bg-[hsl(235,85%,64%)] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[hsl(235,85%,58%)] transition-colors duration-200">
+                  Discover the FOSSter Experience
+                </button>
               </div>
             </div>
           </div>

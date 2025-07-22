@@ -4,12 +4,12 @@
 import DiscordHero from "@components/discord-hero";
 import DiscordSection1 from "@components/discord-section-1";
 import DiscordSection2 from "@components/discord-section-2";
-import DiscordSection3 from "@components/discord-section-3";
+// import DiscordSection3 from "@components/discord-section-3";
 import DiscordSection4 from "@components/discord-section-4";
 import DiscordSection5 from "@components/discord-section-5";
 import DiscordFooter from "@components/discord-footer";
 // import { GlowingEffectDemo } from "@components/ui/glowingeffectdemo";
-// import { GlowingEffectDemo } from "./glowingeffectdemo";
+import { GlowingEffectDemo } from "./glowingeffectdemo";
 import { BackgroundBeamsWithCollisionDemo } from "./herocomponent";
 // import Footer from "@components/footer";
 import Marquee from "./marquee";
@@ -22,9 +22,9 @@ export default function Home() {
       <BackgroundBeamsWithCollisionDemo />
       <DiscordSection2 />
       <DiscordSection1 />
-      <DiscordSection3 />
+      {/* <DiscordSection3 /> */}
       {/* <Marquee /> */}
-       {/* <GlowingEffectDemo /> */}
+       <GlowingEffectDemo />
       <DiscordSection4 />
       <DiscordSection5 />
       <DiscordFooter />

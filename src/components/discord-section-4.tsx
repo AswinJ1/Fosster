@@ -92,7 +92,7 @@ export default function DiscordSection4() {
           <div className="relative flex justify-center lg:justify-end order-1 lg:order-2">
             {/* Mobile Device */}
             <div className="relative">
-              <img src="/whoo.png" alt="" />             
+              <img src="/new.png" alt="" />             
             </div>
           </div>
         </div>
