@@ -44,7 +44,7 @@ export default function DiscordSection4() {
           <div className="relative flex justify-center lg:justify-end order-1 lg:order-2">
             {/* Mobile Device */}
             <div className="relative">
-<img src="/dev.png" alt="" />             
+<img src="/whoo.png" alt="" />             
               
               {/* Floating elements */}
               {/* <div className="absolute -top-6 -left-6 w-14 h-14 bg-green-400 rounded-full flex items-center justify-center shadow-lg animate-pulse">

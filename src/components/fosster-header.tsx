@@ -353,8 +353,14 @@ export default function FOSSterHeader() {
       <nav className="container mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo - Responsive sizing */}
-          <Link href="/" className="text-base sm:text-lg lg:text-xl font-bold truncate">
-            Fosster 2025
+          <Link href="/" className="flex items-center gap-2 text-base sm:text-lg lg:text-xl font-bold truncate" style={{ height: "40px" }}>
+            <img
+              src="/logo.jpg"
+              alt="Fosster Logo"
+              className="h-38 w-38 object-contain bg-transparent -my-2"
+              style={{ background: "transparent" }}
+            />
+            
           </Link>
           
           {/* Desktop Menu - Hidden on mobile and tablet */}

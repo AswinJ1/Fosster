@@ -43,31 +43,31 @@ const GoalCard = styled.div`
 export default function DiscordSection3() {
   const goals = [
     {
-      cover: "/lightning_talks.jpg",
+      cover: "/talks.png",
       text: "Lightning Talks – Fast-paced 10-minute presentations to share open-source ideas, tools, and stories.",
     },
     {
-      cover: "/panel_discussions.jpg",
+      cover: "/panel.png",
       text: "Panel Discussions – Expert-led dialogues on governance, inclusion, and the future of open source.",
     },
     {
-      cover: "/tech_workshops.jpg",
+      cover: "/techh.png",
       text: "Tech Workshops – Hands-on sessions to build real-world skills in open-source technologies.",
     },
     {
-      cover: "/open_source_101.jpg",
+      cover: "/opens.png",
       text: "Open Source 101 – Beginner-focused training led by AmFOSS to help newcomers make their first contributions.",
     },
     {
-      cover: "/speaker_sessions.jpg",
+      cover: "/speakerr.png",
       text: "Speaker Sessions – Deep-dive talks by open-source leaders and project maintainers.",
     },
     {
-      cover: "/job_fair.jpg",
+      cover: "/job.png",
       text: "Job Fair – Meet top tech employers hiring open-source contributors and developers.",
     },
     {
-      cover: "/game_zone.jpg",
+      cover: "/zone.png",
       text: "Game Zone – Coding challenges, quizzes, and contests with prizes, running throughout the event.",
     },
   ];
