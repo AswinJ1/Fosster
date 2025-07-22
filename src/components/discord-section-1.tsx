@@ -43,21 +43,25 @@ const GoalCard = styled.div`
 export default function DiscordSection1() {
   const goals = [
     {
-      "cover": "/women_cut_barriers.jpg",
-      "text": "Create a comfortable space & platform to encourage women to women communication and shared learning",
+      cover: "/leader.png",
+      text: "Connect with open-source leaders and innovators",
     },
     {
-      "cover": "/women_dark_bg.jpg",
-      "text": "Promote cybersecurity, and the role of the next generation of women and girls in making the world a safer place"
+      cover: "/discover.png",
+      text: "Learn from real-world projects and expert contributors",
     },
     {
-      "cover": "/women_flag.jpg",
-      "text": "Train and upskill women in cybersecurity using CTF as the entry-point."
+      cover: "/hand.png",
+      text: "Gain hands-on experience with modern tools and tech",
     },
     {
-      "cover": "/women_connections.jpg",
-      "text": "Facilitate mentorship, learning, personal growth, career growth, and community amongst the women participants"
-    }
+      cover: "/social.png",
+      text: "Discover career opportunities and grow your network",
+    },
+    {
+      cover: "/community.png",
+      text: "Be part of a global, collaborative community",
+    },
   ];
   
   return (
@@ -69,7 +73,7 @@ export default function DiscordSection1() {
             {/* Mobile Device */}
             <div className="relative">
                <Fade triggerOnce direction="up" delay={350}>
-            <img src="/why.png" alt="Coder" className="w-full h-full object-cover rounded-2xl" />
+            <img src="/loop.jpg" alt="Coder" className="w-full h-full object-cover rounded-2xl" />
             </Fade>
             </div>
           </div>

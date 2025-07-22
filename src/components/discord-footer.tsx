@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@components/ui/button";
 
 export default function DiscordFooter() {
@@ -23,12 +24,14 @@ export default function DiscordFooter() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button 
-              size="lg"
-              className="bg-[hsl(235,85%,64%)] hover:bg-[hsl(235,85%,60%)] text-white px-12 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-            >
-              Register for FOSSter 2025
-            </Button>
+            <Link href="/attend" passHref>
+              <Button
+                size="lg"
+                className="bg-[hsl(235,85%,64%)] hover:bg-[hsl(235,85%,60%)] text-white px-12 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                Register for FOSSter 2025
+              </Button>
+            </Link>
           </div>
         </div>
 

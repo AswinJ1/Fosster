@@ -54,7 +54,7 @@ const TechWorkshops = () => {
         {features.map(({ icon, title, description }, idx) => (
           <div
             key={idx}
-            className="p-6 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition"
+            className="p-6 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-blue-50"
           >
             <div className="flex items-center gap-4 mb-3">
               {icon}

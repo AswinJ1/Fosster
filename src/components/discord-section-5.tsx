@@ -10,7 +10,7 @@ export default function DiscordSection5() {
           <div className="relative flex justify-center lg:justify-start">
             {/* Gaming Console Mockup */}
             <div className="relative">
-             <img src="/speaker.png" alt="" />
+             <img src="/mainss.png" alt="" />
               
               {/* Floating elements */}
               {/* <div className="absolute -top-4 -right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg animate-bounce">

@@ -43,21 +43,33 @@ const GoalCard = styled.div`
 export default function DiscordSection3() {
   const goals = [
     {
-      "cover": "/women_cut_barriers.jpg",
-      "text": "Create a comfortable space & platform to encourage women to women communication and shared learning",
+      cover: "/talks.png",
+      text: "Lightning Talks – Fast-paced 10-minute presentations to share open-source ideas, tools, and stories.",
     },
     {
-      "cover": "/women_dark_bg.jpg",
-      "text": "Promote cybersecurity, and the role of the next generation of women and girls in making the world a safer place"
+      cover: "/panel.png",
+      text: "Panel Discussions – Expert-led dialogues on governance, inclusion, and the future of open source.",
     },
     {
-      "cover": "/women_flag.jpg",
-      "text": "Train and upskill women in cybersecurity using CTF as the entry-point."
+      cover: "/techh.png",
+      text: "Tech Workshops – Hands-on sessions to build real-world skills in open-source technologies.",
     },
     {
-      "cover": "/women_connections.jpg",
-      "text": "Facilitate mentorship, learning, personal growth, career growth, and community amongst the women participants"
-    }
+      cover: "/opens.png",
+      text: "Open Source 101 – Beginner-focused training led by AmFOSS to help newcomers make their first contributions.",
+    },
+    {
+      cover: "/speakerr.png",
+      text: "Speaker Sessions – Deep-dive talks by open-source leaders and project maintainers.",
+    },
+    {
+      cover: "/job.png",
+      text: "Job Fair – Meet top tech employers hiring open-source contributors and developers.",
+    },
+    {
+      cover: "/zone.png",
+      text: "Game Zone – Coding challenges, quizzes, and contests with prizes, running throughout the event.",
+    },
   ];
   return (
     <section className="py-20 bg-white relative overflow-hidden">
@@ -144,10 +156,10 @@ export default function DiscordSection3() {
               {/* Responsive Card Grid */}
                         <div className="w-full overflow-hidden">
                           {/* Desktop view - Grid */}
-                          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          <div className="hidden md:grid grid-cols-4 gap-6">
                             {goals.map((g, index) => (
                               <GoalCard key={index} className="p-3">
-                                <Fade triggerOnce direction={index%2===0 ? "up" : "down"} delay={index*350}>
+                                <Fade triggerOnce direction={index % 2 === 0 ? "up" : "down"} delay={index * 350}>
                                   <div className="mb-4">
                                     <img alt="illustration" draggable="false" src={g.cover} />
                                   </div>
