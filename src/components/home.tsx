@@ -11,15 +11,21 @@ import DiscordFooter from "@components/discord-footer";
 // import { GlowingEffectDemo } from "@components/ui/glowingeffectdemo";
 import { GlowingEffectDemo } from "./glowingeffectdemo";
 import { BackgroundBeamsWithCollisionDemo } from "./herocomponent";
+import ResponsiveAnimatedMenu from "./navmenu";
 // import Footer from "@components/footer";
+import Homecoming from "./hero_animated";
 import Marquee from "./marquee";
+import Hero from "./hero";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* <FOSSterHeader /> */}
       {/* <DiscordHero /> */}
-      <BackgroundBeamsWithCollisionDemo />
+      {/* <ResponsiveAnimatedMenu /> */}
+      {/* <BackgroundBeamsWithCollisionDemo /> */}
+      <Hero />
+      {/* <Homecoming /> */}
       <DiscordSection2 />
       <DiscordSection1 />
       {/* <DiscordSection3 /> */}
