@@ -1,9 +1,10 @@
 'use client'
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, Calendar, Users, MapPin, Coffee, Zap, Code, MessageCircle, Mic, Building, Gift, Home, Bed, Star, Gamepad2, Bug, Terminal, BookOpen, FileText, Keyboard } from "lucide-react";
+import { ChevronDown, Users, Calendar, MessageCircle, Gamepad2, Bug, Terminal, BookOpen, FileText, Keyboard, Building, Zap, Code, Mic, Coffee, Gift, MapPin, Bed, Star } from "lucide-react";
+import ResponsiveAnimatedMenu from "./navmenu";
 
-// Desktop Menu Component
+// Desktop Menu Component (unchanged)
 function DesktopMenu({ 
   menu, 
   isHover, 
@@ -80,7 +81,7 @@ function DesktopMenu({
                           {submenu.icon && <submenu.icon size={16} className="xl:w-[18px] xl:h-[18px]" />}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h6 className="font-semibold text-sm truncate">{submenu.name}</h6>
+                          <h6 className="font-semibold text-sm truncate">{submenu.displayName || submenu.name}</h6>
                           <p className="text-xs text-gray-600 truncate">{submenu.desc}</p>
                         </div>
                         <ChevronDown className="rotate-[-90deg] text-gray-400 flex-shrink-0" size={14} />
@@ -91,7 +92,7 @@ function DesktopMenu({
                         <div className="absolute left-full top-0 ml-2 bg-white border border-gray-200 rounded-lg p-3 min-w-[250px] xl:min-w-[280px] z-60 shadow-lg">
                           <div className="grid gap-2">
                             {submenu.nestedItems.map((nestedItem: any, j: number) => (
-                              <Link href={`/events/${nestedItem.name}`} key={j}>
+                              <Link href={`/${nestedItem.name}`} key={j}>
                                 <div className="flex items-center gap-x-2 xl:gap-x-3 group/nested p-2 rounded-md hover:bg-blue-100">
                                   <div className="bg-blue-100 w-fit p-1.5 xl:p-2 rounded-md group-hover/nested:bg-blue-500 group-hover/nested:text-white duration-300">
                                     {nestedItem.icon && <nestedItem.icon size={14} className="xl:w-4 xl:h-4" />}
@@ -115,7 +116,7 @@ function DesktopMenu({
                             {submenu.icon && <submenu.icon size={16} className="xl:w-[18px] xl:h-[18px]" />}
                           </div>
                           <div className="min-w-0">
-                            <h6 className="font-semibold text-sm truncate">{submenu.name}</h6>
+                            <h6 className="font-semibold text-sm truncate">{submenu.displayName || submenu.name}</h6>
                             <p className="text-xs text-gray-600 truncate">{submenu.desc}</p>
                           </div>
                         </div>
@@ -131,155 +132,7 @@ function DesktopMenu({
   );
 }
 
-// Mobile Menu Component (unchanged)
-function MobMenu({ Menus }: { Menus: any[] }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [clicked, setClicked] = useState<number | null>(null);
-  const [nestedClicked, setNestedClicked] = useState<string | null>(null);
-  
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-    setClicked(null);
-    setNestedClicked(null);
-  };
-
-  return (
-    <div>
-      {/* Mobile Menu Button */}
-      <button 
-        className="xl:hidden z-[999] relative p-2 hover:bg-gray-100 rounded-md transition-colors touch-manipulation" 
-        onClick={toggleDrawer}
-        aria-label="Toggle menu"
-      >
-        <Menu size={20} />
-      </button>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-[998] xl:hidden"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Panel - Fully Responsive */}
-      <div
-        className={`fixed left-0 top-0 h-full w-[85vw] xs:w-[300px] sm:w-[350px] md:w-[380px] lg:w-[400px] bg-[#18181A] text-white overflow-y-auto transition-transform duration-300 z-[999] xl:hidden ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-        style={{ maxWidth: '420px' }}
-      >
-        {/* Mobile Header */}
-        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-700">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-lg sm:text-xl font-bold truncate">
-            Fosster 2025
-          </Link>
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="p-1.5 sm:p-2 hover:bg-white/10 rounded-md transition-colors flex-shrink-0 ml-2 touch-manipulation"
-            aria-label="Close menu"
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        {/* Menu Items */}
-        <div className="p-3 sm:p-4">
-          <ul className="space-y-1 sm:space-y-2">
-            {Menus.map(({ name, subMenu }, i) => {
-              const isClicked = clicked === i;
-              const hasSubMenu = subMenu?.length;
-              return (
-                <li key={name}>
-                  <button
-                    className="w-full flex items-center justify-between p-2 sm:p-3 hover:bg-white/5 rounded-md cursor-pointer transition-colors text-sm sm:text-base touch-manipulation"
-                    onClick={() => setClicked(isClicked ? null : i)}
-                  >
-                    <span className="font-medium truncate">{name}</span>
-                    {hasSubMenu && (
-                      <ChevronDown
-                        className={`transition-transform duration-200 flex-shrink-0 ml-2 ${
-                          isClicked ? "rotate-180" : ""
-                        }`}
-                        size={16}
-                      />
-                    )}
-                  </button>
-                  
-                  {hasSubMenu && (
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isClicked ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <ul className="ml-3 sm:ml-4 mt-1 sm:mt-2 space-y-1">
-                        {subMenu.map((submenu: any) => (
-                          <li key={submenu.name}>
-                            {submenu.hasNestedMenu ? (
-                              <div>
-                                <button 
-                                  className="w-full p-1.5 sm:p-2 flex items-center justify-between hover:bg-white/5 rounded-md gap-x-2 cursor-pointer transition-colors touch-manipulation"
-                                  onClick={() => setNestedClicked(nestedClicked === submenu.name ? null : submenu.name)}
-                                >
-                                  <div className="flex items-center gap-x-2 min-w-0">
-                                    {submenu.icon && <submenu.icon size={16} className="flex-shrink-0" />}
-                                    <span className="text-xs sm:text-sm truncate">{submenu.name}</span>
-                                  </div>
-                                  <ChevronDown
-                                    className={`transition-transform duration-200 flex-shrink-0 ${
-                                      nestedClicked === submenu.name ? "rotate-180" : ""
-                                    }`}
-                                    size={14}
-                                  />
-                                </button>
-                                
-                                {submenu.nestedItems && (
-                                  <div
-                                    className={`overflow-hidden transition-all duration-300 ${
-                                      nestedClicked === submenu.name ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                                    }`}
-                                  >
-                                    <ul className="ml-4 sm:ml-6 mt-1 sm:mt-2 space-y-1">
-                                      {submenu.nestedItems.map((nestedItem: any) => (
-                                        <Link 
-                                          href={`/events/${nestedItem.name}`} 
-                                          key={nestedItem.name} 
-                                          onClick={() => setIsOpen(false)}
-                                        >
-                                          <li className="p-1.5 sm:p-2 flex items-center hover:bg-white/5 rounded-md gap-x-2 cursor-pointer transition-colors touch-manipulation">
-                                            {nestedItem.icon && <nestedItem.icon size={14} className="flex-shrink-0" />}
-                                            <span className="text-xs sm:text-sm truncate">{nestedItem.displayName}</span>
-                                          </li>
-                                        </Link>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                              </div>
-                            ) : (
-                              <Link href={`/${submenu.name}`} onClick={() => setIsOpen(false)}>
-                                <div className="p-1.5 sm:p-2 flex items-center hover:bg-white/5 rounded-md gap-x-2 cursor-pointer transition-colors touch-manipulation">
-                                  {submenu.icon && <submenu.icon size={16} className="flex-shrink-0" />}
-                                  <span className="text-xs sm:text-sm truncate">{submenu.name}</span>
-                                </div>
-                              </Link>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Main Navigation Component - FIXED
+// Main Navigation Component
 export default function FOSSterHeader() {
   // Centralized state management for desktop menu
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -298,45 +151,45 @@ export default function FOSSterHeader() {
       name: "Events",
       subMenu: [
         { 
-          name: "gamezones", 
+          name: "Game Zones", 
           icon: Gamepad2, 
           desc: "Gaming activities",
           hasNestedMenu: true,
           nestedItems: [
-            { name: "gamezones/bug-fixing", icon: Bug, desc: "Debug challenges", displayName: "Bug Fixing" },
-            { name: "gamezones/commandline-tasks", icon: Terminal, desc: "CLI competitions", displayName: "CLI Tasks" },
-            { name: "gamezones/opensource-quiz", icon: BookOpen, desc: "Knowledge quiz", displayName: "Open Source Quiz" },
-            { name: "gamezones/regex-writing", icon: FileText, desc: "Pattern matching", displayName: "Regex Writing" },
-            { name: "gamezones/typing-challenge", icon: Keyboard, desc: "Speed typing", displayName: "Typing Challenge" }
+            { name: "events/gamezones/bug-fixing", icon: Bug, desc: "Debug challenges", displayName: "Bug Fixing" },
+            { name: "events/gamezones/commandline-tasks", icon: Terminal, desc: "CLI competitions", displayName: "CLI Tasks" },
+            { name: "events/gamezones/opensource-quiz", icon: BookOpen, desc: "Knowledge quiz", displayName: "Open Source Quiz" },
+            { name: "events/gamezones/regex-writing", icon: FileText, desc: "Pattern matching", displayName: "Regex Writing" },
+            { name: "events/gamezones/typing-challenge", icon: Keyboard, desc: "Speed typing", displayName: "Typing Challenge" }
           ]
         },
-        { name: "events/jobfair", icon: Building, desc: "Career opportunities" },
-        { name: "events/lightning-talks", icon: Zap, desc: "Quick presentations" },
-        { name: "events/opensource-101", icon: Code, desc: "Open source basics" },
-        { name: "events/panel-discussion", icon: Users, desc: "Expert panels" },
-        { name: "events/speaker-sections", icon: Mic, desc: "Featured speakers" },
-        { name: "events/workshops", icon: Coffee, desc: "Hands-on learning" },
+        { name: "events/jobfair", icon: Building, desc: "Career opportunities", displayName: "Job Fair" },
+        { name: "events/lightning-talks", icon: Zap, desc: "Quick presentations", displayName: "Lightning Talks" },
+        { name: "events/opensource-101", icon: Code, desc: "Open source basics", displayName: "Open Source 101" },
+        { name: "events/panel-discussion", icon: Users, desc: "Expert panels", displayName: "Panel Discussion" },
+        { name: "events/speaker-sections", icon: Mic, desc: "Featured speakers", displayName: "Speaker Sessions" },
+        { name: "events/workshops", icon: Coffee, desc: "Hands-on learning", displayName: "Workshops" },
       ]
     },
     {
       name: "Sponsor",
       subMenu: [
-        { name: "sponsor", icon: Gift, desc: "Partnership opportunities" }
+        { name: "sponsor", icon: Gift, desc: "Partnership opportunities", displayName: "Become a Sponsor" }
       ]
     },
     {
       name: "Venue",
       subMenu: [
-        { name: "venue/banglore", icon: MapPin, desc: "Bangalore location" },
-        { name: "venue/hotels", icon: Bed, desc: "Accommodation options" },
-        { name: "venue/recommendation", icon: Star, desc: "Local recommendations" }
+        { name: "venue/banglore", icon: MapPin, desc: "Bangalore location", displayName: "Bangalore" },
+        { name: "venue/hotels", icon: Bed, desc: "Accommodation options", displayName: "Hotels & Accommodation" },
+        { name: "venue/recommendation", icon: Star, desc: "Local recommendations", displayName: "Local Recommendations" }
       ]
     }
   ];
 
   const handleMenuHover = (menuName: string) => {
     setActiveMenu(menuName);
-    setNestedHover(null); // Reset nested hover when switching menus
+    setNestedHover(null);
   };
 
   const handleMenuLeave = () => {
@@ -352,7 +205,7 @@ export default function FOSSterHeader() {
     <div className="bg-white text-black sticky top-0 z-50 shadow-sm">
       <nav className="container mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          {/* Logo - Responsive sizing */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 text-base sm:text-lg lg:text-xl font-bold truncate" style={{ height: "40px" }}>
             <img
               src="/logo.jpg"
@@ -360,28 +213,34 @@ export default function FOSSterHeader() {
               className="h-38 w-38 object-contain bg-transparent -my-2"
               style={{ background: "transparent" }}
             />
-            
           </Link>
           
-          {/* Desktop Menu - Hidden on mobile and tablet */}
-          <ul className="hidden xl:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
-            {menuData.map((menu) => (
-              <DesktopMenu 
-                key={menu.name} 
-                menu={menu}
-                isHover={activeMenu === menu.name}
-                nestedHover={nestedHover}
-                onMouseEnter={() => handleMenuHover(menu.name)}
-                onMouseLeave={handleMenuLeave}
-                onNestedHover={handleNestedHover}
-              />
-            ))}
-          </ul>
+          {/* Desktop Menu - Centered */}
+          <div className="hidden xl:flex flex-1 justify-center">
+            <ul className="flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+              {menuData.map((menu) => (
+                <DesktopMenu 
+                  key={menu.name} 
+                  menu={menu}
+                  isHover={activeMenu === menu.name}
+                  nestedHover={nestedHover}
+                  onMouseEnter={() => handleMenuHover(menu.name)}
+                  onMouseLeave={handleMenuLeave}
+                  onNestedHover={handleNestedHover}
+                />
+              ))}
+            </ul>
+          </div>
 
-          {/* Mobile Menu - Shown on mobile and tablet */}
-          <MobMenu Menus={menuData} />
+          {/* Empty space to balance the layout */}
+          <div className="hidden xl:block w-[120px]"></div>
         </div>
       </nav>
+      
+      {/* Animated Mobile Menu - Shown on mobile and tablet */}
+      <div className="xl:hidden">
+        <ResponsiveAnimatedMenu />
+      </div>
     </div>
   );
 }
