@@ -23,8 +23,8 @@ export default function Home() {
       {/* <FOSSterHeader /> */}
       {/* <DiscordHero /> */}
       {/* <ResponsiveAnimatedMenu /> */}
-      {/* <BackgroundBeamsWithCollisionDemo /> */}
-      <Hero />
+      <BackgroundBeamsWithCollisionDemo />
+      {/* <Hero /> */}
       {/* <Homecoming /> */}
       <DiscordSection2 />
       <DiscordSection1 />

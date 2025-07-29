@@ -11,7 +11,6 @@ import {
     BookOpen, 
     Brain, 
     Users, 
-    Timer, 
     Trophy, 
     Mail 
 } from "lucide-react";
@@ -26,7 +25,7 @@ export default function OpenSourceQuizzes() {
                     <h2 className="text-4xl sm:text-5xl font-bold text-blue-600 mb-3">
                         Open-Source Quizzes – FOSSter 2025
                     </h2>
-                    <p className="text-xl text-blue-600 font-medium">
+                    <p className="text-xl text-green-600 font-medium">
                         Test Your Knowledge. Prove Your FOSS IQ!
                     </p>
                 </div>
@@ -37,7 +36,7 @@ export default function OpenSourceQuizzes() {
                 }}>
                     <div className="flex items-center justify-center mb-6">
                         <div className="bg-blue-100 rounded-full p-3 mr-4">
-                            <Lightbulb className="w-7 h-7 text-blue-600" />
+                            <Lightbulb className="w-7 h-7 text-black" />
                         </div>
                         <h3 className="text-3xl font-bold text-blue-500 text-center">
                             What are Open-Source Quizzes?
@@ -72,7 +71,7 @@ export default function OpenSourceQuizzes() {
                         ].map((step, i) => (
                             <div key={i} className="flex flex-col items-center text-center">
                                 <div className={`${step.color} rounded-full p-3 mb-3 shadow-sm`}>
-                                    <step.icon className="w-6 h-6 text-blue-600" />
+                                    <step.icon className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">{i + 1}. {step.title}</span>
                                 <span className="text-xs text-gray-600 mt-1">{step.subtitle}</span>
@@ -84,7 +83,7 @@ export default function OpenSourceQuizzes() {
                     <div className="bg-gradient-to-r from-blue-50 to-blue-50 border-l-4 border-blue-500 rounded-lg p-6 mb-8 shadow-sm">
                         <div className="flex items-center mb-2">
                             <div className="bg-blue-500 rounded-full p-2 mr-3">
-                                <Star className="w-5 h-5 text-white" />
+                                <Star className="w-5 h-5 text-black" />
                             </div>
                             <h4 className="text-xl font-bold text-blue-500">Objective</h4>
                         </div>
@@ -104,7 +103,7 @@ export default function OpenSourceQuizzes() {
                             ].map((feature, i) => (
                                 <div key={i} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                                     <div className={`${feature.color} rounded-full p-2 mt-1`}>
-                                        <feature.icon className="w-5 h-5 text-blue-600" />
+                                        <feature.icon className="w-5 h-5 text-black" />
                                     </div>
                                     <div>
                                         <h5 className="font-semibold text-gray-900 mb-1">{feature.title}</h5>
@@ -131,7 +130,7 @@ export default function OpenSourceQuizzes() {
                 <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
                     <div className="flex items-center mb-4">
                         <div className="bg-blue-100 rounded-full p-3 mr-4">
-                            <Trophy className="w-7 h-7 text-blue-600" />
+                            <Trophy className="w-7 h-7 text-black" />
                         </div>
                         <h3 className="text-2xl font-bold text-blue-500">Prizes</h3>
                     </div>
@@ -160,7 +159,7 @@ export default function OpenSourceQuizzes() {
                 <div className="mt-16 pt-8 border-t-2 border-gray-100">
                     <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl shadow-lg p-8">
                         <div className="flex items-center mb-4">
-                            <Mail className="w-6 h-6 text-purple-500 mr-3" />
+                            <Mail className="w-6 h-6 text-black mr-3" />
                             <h3 className="text-2xl font-bold text-purple-500">
                                 Sponsor Our Game Zone Prizes
                             </h3>

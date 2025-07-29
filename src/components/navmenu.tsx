@@ -2,51 +2,54 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import type { Variants } from "framer-motion";
+import Link from 'next/link';
 
 interface MenuItem {
   id: string;
   title: string;
+  href?: string; // Add href for navigation
   children?: MenuItem[];
 }
 
+// Update menuItems with hrefs for each page
 const menuItems: MenuItem[] = [
-  { id: '1', title: 'Home Page' },
-  { id: '2', title: 'About' },
-  { id: '3', title: 'Attend Page' },
-  { id: '4', title: 'Sponsor Us' },
+  { id: '1', title: 'Home Page', href: '/' },
+  { id: '2', title: 'About', href: '/about' },
+  { id: '3', title: 'Attend Page', href: '/attend' },
+  { id: '4', title: 'Sponsor Us', href: '/sponsor' },
   {
     id: '5',
     title: 'Events',
     children: [
-      { id: '5.1', title: 'Lightning Talks' },
-      { id: '5.2', title: 'Panel Discussions' },
-      { id: '5.3', title: 'Open Source 101' },
-      { id: '5.4', title: 'Workshops' },
-      { id: '5.5', title: 'Job Fair' },
-      { id: '5.6', title: 'Speaker sessions' },
+      { id: '5.1', title: 'Lightning Talks', href: '/events/lightning-talks' },
+      { id: '5.2', title: 'Panel Discussions', href: '/events/panel-discussions' },
+      { id: '5.3', title: 'Open Source 101', href: '/events/open-source-101' },
+      { id: '5.4', title: 'Workshops', href: '/events/workshops' },
+      { id: '5.5', title: 'Job Fair', href: '/events/job-fair' },
+      { id: '5.6', title: 'Speaker sessions', href: '/events/speaker-sessions' },
     ]
   },
   {
     id: '7',
     title: 'Game Zones',
     children: [
-      { id: '7.1', title: 'Typing Challenge' },
-      { id: '7.2', title: 'Bug Fixing Race' },
-      { id: '7.3', title: 'Command line quiz' },
-      { id: '7.4', title: 'Opensource Quiz' },
-      { id: '7.5', title: 'Regex writing' },
+      { id: '7.1', title: 'Typing Challenge', href: '/gamezones/typing-challenge' },
+      { id: '7.2', title: 'Bug Fixing Race', href: '/gamezones/bug-fixing-race' },
+      { id: '7.3', title: 'Command line quiz', href: '/gamezones/commandline-quiz' },
+      { id: '7.4', title: 'Opensource Quiz', href: '/gamezones/opensource-quiz' },
+      { id: '7.5', title: 'Regex writing', href: '/gamezones/regex-writing' },
     ]
   },
   {
     id: '8',
     title: 'Venue',
     children: [
-      { id: '8.1', title: 'Travel to Bangalore' },
-      { id: '8.2', title: 'Local recommendation' },
-      { id: '8.3', title: 'Hotels & Accommodation' },
+      { id: '8.1', title: 'Travel to Bangalore', href: '/venue/travel' },
+      { id: '8.2', title: 'Local recommendation', href: '/venue/local' },
+      { id: '8.3', title: 'Hotels & Accommodation', href: '/venue/hotels' },
     ]
   },
-  { id: '9', title: 'Contact Pages' },
+  { id: '9', title: 'Contact Pages', href: '/contact' },
 ];
 
 interface PerspectiveTextProps {
@@ -119,9 +122,15 @@ function NavItem({ item, level = 0 }: NavItemProps) {
         }`}
         onClick={() => item.children && setIsExpanded(!isExpanded)}
       >
-        <span className={`text-indigo-900 ${level > 0 ? 'text-sm' : 'text-base'}`}>
-          {item.title}
-        </span>
+        {item.href ? (
+          <Link href={item.href} className={`text-indigo-900 ${level > 0 ? 'text-sm' : 'text-base'} w-full`}>
+            {item.title}
+          </Link>
+        ) : (
+          <span className={`text-indigo-900 ${level > 0 ? 'text-sm' : 'text-base'}`}>
+            {item.title}
+          </span>
+        )}
         {item.children && (
           <motion.div
             animate={{ rotate: isExpanded ? 90 : 0 }}
@@ -226,7 +235,7 @@ export default function ResponsiveAnimatedMenu() {
   return (
     <div className="fixed right-4 top-4 sm:right-8 sm:top-8 md:right-12 md:top-12 lg:right-[50px] lg:top-[50px] z-50">
       <motion.div
-        className="bg-gradient-to-br from-indigo-400 via-indigo-500 to-blue-600 rounded-[25px] relative shadow-lg"
+        className="bg-white rounded-[25px] relative shadow-lg"
         variants={isMobile ? mobileMenuVariants : menuVariants}
         animate={isActive ? "open" : "closed"}
         initial="closed"

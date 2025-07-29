@@ -27,7 +27,7 @@ export default function BugFixingRaces() {
                     <h2 className="text-4xl sm:text-5xl font-bold text-blue-600 mb-3 drop-shadow-none">
                         Bug Fixing Races – FOSSter 2025
                     </h2>
-                    <p className="text-xl text-pink-600 font-medium drop-shadow-none">
+                    <p className="text-xl text-green-600 font-medium drop-shadow-none">
                         Diagnose. Debug. Dominate!
                     </p>
                 </div>
@@ -39,7 +39,7 @@ export default function BugFixingRaces() {
                     }}>
                         <div className="flex items-center justify-center mb-6">
                             <div className="bg-blue-100 rounded-full p-3 mr-4">
-                                <Lightbulb className="w-7 h-7 text-blue-600" />
+                                <Lightbulb className="w-7 h-7 text-black" />
                             </div>
                             <h3 className="text-3xl font-bold text-blue-500 text-center">
                                 What are Bug Fixing Races?
@@ -71,7 +71,7 @@ export default function BugFixingRaces() {
                         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
                             <div className="flex flex-col items-center text-center">
                                 <div className="bg-blue-100 rounded-full p-3 mb-3 shadow-sm">
-                                    <Play className="w-6 h-6 text-blue-600" />
+                                    <Play className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">1. Select Challenge</span>
                                 <span className="text-xs text-gray-600 mt-1">Pick your difficulty</span>
@@ -79,7 +79,7 @@ export default function BugFixingRaces() {
                             
                             <div className="flex flex-col items-center text-center">
                                 <div className="bg-blue-100 rounded-full p-3 mb-3 shadow-sm">
-                                    <Clock className="w-6 h-6 text-blue-600" />
+                                    <Clock className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">2. Start Timer</span>
                                 <span className="text-xs text-gray-600 mt-1">Race begins now</span>
@@ -87,7 +87,7 @@ export default function BugFixingRaces() {
                             
                             <div className="flex flex-col items-center text-center">
                                 <div className="bg-purple-100 rounded-full p-3 mb-3 shadow-sm">
-                                    <Bug className="w-6 h-6 text-purple-600" />
+                                    <Bug className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">3. Debug Code</span>
                                 <span className="text-xs text-gray-600 mt-1">Find & fix bugs</span>
@@ -95,7 +95,7 @@ export default function BugFixingRaces() {
                             
                             <div className="flex flex-col items-center text-center">
                                 <div className="bg-yellow-100 rounded-full p-3 mb-3 shadow-sm">
-                                    <RotateCcw className="w-6 h-6 text-yellow-600" />
+                                    <RotateCcw className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">4. Test Solution</span>
                                 <span className="text-xs text-gray-600 mt-1">Verify it works</span>
@@ -103,7 +103,7 @@ export default function BugFixingRaces() {
                             
                             <div className="flex flex-col items-center text-center">
                                 <div className="bg-pink-100 rounded-full p-3 mb-3 shadow-sm">
-                                    <CheckCircle className="w-6 h-6 text-pink-600" />
+                                    <CheckCircle className="w-6 h-6 text-black" />
                                 </div>
                                 <span className="font-semibold text-gray-900 text-sm">5. Submit & Score</span>
                                 <span className="text-xs text-gray-600 mt-1">Get your rank</span>
@@ -114,7 +114,7 @@ export default function BugFixingRaces() {
                         <div className="bg-gradient-to-r from-blue-50 to-blue-50 border-l-4 border-blue-500 rounded-lg p-6 mb-8 shadow-sm">
                             <div className="flex items-center mb-2">
                                 <div className="bg-blue-500 rounded-full p-2 mr-3">
-                                    <Star className="w-5 h-5 text-white" />
+                                    <Star className="w-5 h-5 text-black" />
                                 </div>
                                 <h4 className="text-xl font-bold text-blue-500">Objective</h4>
                             </div>
@@ -129,7 +129,7 @@ export default function BugFixingRaces() {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                                     <div className="bg-blue-100 rounded-full p-2 mt-1">
-                                        <Zap className="w-5 h-5 text-blue-600" />
+                                        <Zap className="w-5 h-5 text-black" />
                                     </div>
                                     <div>
                                         <h5 className="font-semibold text-gray-900 mb-1">Lightning Speed</h5>
@@ -139,7 +139,7 @@ export default function BugFixingRaces() {
                                 
                                 <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                                     <div className="bg-purple-100 rounded-full p-2 mt-1">
-                                        <Brain className="w-5 h-5 text-purple-600" />
+                                        <Brain className="w-5 h-5 text-black" />
                                     </div>
                                     <div>
                                         <h5 className="font-semibold text-gray-900 mb-1">Sharp Logic</h5>
@@ -149,7 +149,7 @@ export default function BugFixingRaces() {
                                 
                                 <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                                     <div className="bg-blue-100 rounded-full p-2 mt-1">
-                                        <Target className="w-5 h-5 text-blue-600" />
+                                        <Target className="w-5 h-5 text-black" />
                                     </div>
                                     <div>
                                         <h5 className="font-semibold text-gray-900 mb-1">Real-World Skills</h5>
@@ -181,7 +181,7 @@ export default function BugFixingRaces() {
                     }}>
                         <div className="flex items-center mb-4">
                             <div className="bg-blue-100 rounded-full p-3 mr-4">
-                                <Trophy className="w-7 h-7 text-blue-600" />
+                                <Trophy className="w-7 h-7 text-black" />
                             </div>
                             <h3 className="text-2xl font-bold text-blue-500">Prizes</h3>
                         </div>
@@ -223,7 +223,7 @@ export default function BugFixingRaces() {
                             backgroundImage: "linear-gradient(135deg, rgba(147, 51, 234, 0.02) 0%, rgba(196, 181, 253, 0.02) 100%)",
                         }}>
                             <div className="flex items-center mb-4">
-                                <Mail className="w-6 h-6 text-purple-500 mr-3" />
+                                <Mail className="w-6 h-6 text-black mr-3" />
                                 <h3 className="text-2xl font-bold text-purple-500">
                                     Sponsor Our Game Zone Prizes
                                 </h3>

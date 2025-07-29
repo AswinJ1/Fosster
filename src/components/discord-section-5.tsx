@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 
 export default function DiscordSection5() {
   return (
@@ -10,7 +11,7 @@ export default function DiscordSection5() {
           <div className="relative flex justify-center lg:justify-start">
             {/* Gaming Console Mockup */}
             <div className="relative">
-             <img src="/meet.png" alt="" />
+             <img src="/spr.png" alt="" />
               
               {/* Floating elements */}
               {/* <div className="absolute -top-4 -right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg animate-bounce">
@@ -47,9 +48,11 @@ export default function DiscordSection5() {
                   Seize the opportunity to support the leading event that brings together passionate open-source developers and contributors.
                 </p>
                 <div className="pt-2">
-                  <button className="bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition-colors duration-200">
-                    Explore Sponsorship 
-                  </button>
+                  <Link href="/sponsor">
+                    <button className="bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition-colors duration-200 ">
+                      Explore Sponsorship 
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -19,54 +19,114 @@ export default function Footer() {
         </div>
 
         {/* Footer Links */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
-          <div>
-            <p className="text-lg font-medium text-white">About</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li><Link href="/about" className="text-gray-300 hover:text-white transition">About FOSSter</Link></li>
-              <li><Link href="/attend" className="text-gray-300 hover:text-white transition">Attend</Link></li>
-              <li><Link href="/contact-us" className="text-gray-300 hover:text-white transition">Contact Us</Link></li>
-            </ul>
+        {/* Desktop: 5 columns, Mobile: 2 columns per row */}
+        <div>
+          {/* Desktop layout */}
+          <div className="hidden lg:grid grid-cols-5 gap-8">
+            {/* ...existing code for each section... */}
+            <div>
+              <p className="text-lg font-medium text-white">About</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li><Link href="/about" className="text-gray-300 hover:text-white transition">About FOSSter</Link></li>
+                <li><Link href="/attend" className="text-gray-300 hover:text-white transition">Attend</Link></li>
+                <li><Link href="/contact-us" className="text-gray-300 hover:text-white transition">Contact Us</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-medium text-white">Events</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li><Link href="/events" className="text-gray-300 hover:text-white transition">All Events</Link></li>
+                <li><Link href="/events/workshops" className="text-gray-300 hover:text-white transition">Workshops</Link></li>
+                <li><Link href="/events/lightning-talks" className="text-gray-300 hover:text-white transition">Lightning Talks</Link></li>
+                <li><Link href="/events/speaker-sections" className="text-gray-300 hover:text-white transition">Speakers</Link></li>
+                <li><Link href="/events/jobfair" className="text-gray-300 hover:text-white transition">Job Fair</Link></li>
+                <li><Link href="/events/panel-discussion" className="text-gray-300 hover:text-white transition">Panel Discussion</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-medium text-white">GameZones</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li><Link href="/events/gamezones/bug-fixing" className="text-gray-300 hover:text-white transition">Bug Fixing</Link></li>
+                <li><Link href="/events/gamezones/commandline-tasks" className="text-gray-300 hover:text-white transition">CLI Tasks</Link></li>
+                <li><Link href="/events/gamezones/opensource-quiz" className="text-gray-300 hover:text-white transition">Open Source Quiz</Link></li>
+                <li><Link href="/events/gamezones/regex-writing" className="text-gray-300 hover:text-white transition">Regex Writing</Link></li>
+                <li><Link href="/events/gamezones/typing-challenge" className="text-gray-300 hover:text-white transition">Typing Challenge</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-medium text-white">Venue</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li><Link href="/venue/banglore" className="text-gray-300 hover:text-white transition">Bangalore</Link></li>
+                <li><Link href="/venue/hotels" className="text-gray-300 hover:text-white transition">Hotels</Link></li>
+                <li><Link href="/venue/recommendation" className="text-gray-300 hover:text-white transition">Recommendations</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-medium text-white">Connect</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li><Link href="/sponsor" className="text-gray-300 hover:text-white transition">Sponsor</Link></li>
+                <li><Link href="#newsletter" className="text-gray-300 hover:text-white transition">Newsletter</Link></li>
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <p className="text-lg font-medium text-white">Events</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li><Link href="/events" className="text-gray-300 hover:text-white transition">All Events</Link></li>
-              <li><Link href="/events/workshops" className="text-gray-300 hover:text-white transition">Workshops</Link></li>
-              <li><Link href="/events/lightning-talks" className="text-gray-300 hover:text-white transition">Lightning Talks</Link></li>
-              <li><Link href="/events/speaker-sections" className="text-gray-300 hover:text-white transition">Speakers</Link></li>
-              <li><Link href="/events/jobfair" className="text-gray-300 hover:text-white transition">Job Fair</Link></li>
-              <li><Link href="/events/panel-discussion" className="text-gray-300 hover:text-white transition">Panel Discussion</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-lg font-medium text-white">GameZones</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li><Link href="/events/gamezones/bug-fixing" className="text-gray-300 hover:text-white transition">Bug Fixing</Link></li>
-              <li><Link href="/events/gamezones/commandline-tasks" className="text-gray-300 hover:text-white transition">CLI Tasks</Link></li>
-              <li><Link href="/events/gamezones/opensource-quiz" className="text-gray-300 hover:text-white transition">Open Source Quiz</Link></li>
-              <li><Link href="/events/gamezones/regex-writing" className="text-gray-300 hover:text-white transition">Regex Writing</Link></li>
-              <li><Link href="/events/gamezones/typing-challenge" className="text-gray-300 hover:text-white transition">Typing Challenge</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-lg font-medium text-white">Venue</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li><Link href="/venue/banglore" className="text-gray-300 hover:text-white transition">Bangalore</Link></li>
-              <li><Link href="/venue/hotels" className="text-gray-300 hover:text-white transition">Hotels</Link></li>
-              <li><Link href="/venue/recommendation" className="text-gray-300 hover:text-white transition">Recommendations</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-lg font-medium text-white">Connect</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li><Link href="/sponsor" className="text-gray-300 hover:text-white transition">Sponsor</Link></li>
-              <li><Link href="#newsletter" className="text-gray-300 hover:text-white transition">Newsletter</Link></li>
-            </ul>
+          {/* Mobile layout: 2 columns per row */}
+          <div className="lg:hidden flex flex-col gap-2">
+            <div className="grid grid-cols-2 gap-2">
+              {/* About */}
+              <div>
+                <p className="text-lg font-medium text-white mb-2">About</p>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/about" className="text-gray-300 hover:text-white transition">About FOSSter</Link></li>
+                  <li><Link href="/attend" className="text-gray-300 hover:text-white transition">Attend</Link></li>
+                  <li><Link href="/contact-us" className="text-gray-300 hover:text-white transition">Contact Us</Link></li>
+                </ul>
+              </div>
+              {/* Events */}
+              <div>
+                <p className="text-lg font-medium text-white mb-2">Events</p>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/events" className="text-gray-300 hover:text-white transition">All Events</Link></li>
+                  <li><Link href="/events/workshops" className="text-gray-300 hover:text-white transition">Workshops</Link></li>
+                  <li><Link href="/events/lightning-talks" className="text-gray-300 hover:text-white transition">Lightning Talks</Link></li>
+                  <li><Link href="/events/speaker-sections" className="text-gray-300 hover:text-white transition">Speakers</Link></li>
+                  <li><Link href="/events/jobfair" className="text-gray-300 hover:text-white transition">Job Fair</Link></li>
+                  <li><Link href="/events/panel-discussion" className="text-gray-300 hover:text-white transition">Panel Discussion</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {/* GameZones */}
+              <div>
+                <p className="text-lg font-medium text-white mb-2">GameZones</p>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/events/gamezones/bug-fixing" className="text-gray-300 hover:text-white transition">Bug Fixing</Link></li>
+                  <li><Link href="/events/gamezones/commandline-tasks" className="text-gray-300 hover:text-white transition">CLI Tasks</Link></li>
+                  <li><Link href="/events/gamezones/opensource-quiz" className="text-gray-300 hover:text-white transition">Open Source Quiz</Link></li>
+                  <li><Link href="/events/gamezones/regex-writing" className="text-gray-300 hover:text-white transition">Regex Writing</Link></li>
+                  <li><Link href="/events/gamezones/typing-challenge" className="text-gray-300 hover:text-white transition">Typing Challenge</Link></li>
+                </ul>
+              </div>
+              {/* Venue */}
+              <div>
+                <p className="text-lg font-medium text-white mb-2">Venue</p>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/venue/banglore" className="text-gray-300 hover:text-white transition">Bangalore</Link></li>
+                  <li><Link href="/venue/hotels" className="text-gray-300 hover:text-white transition">Hotels</Link></li>
+                  <li><Link href="/venue/recommendation" className="text-gray-300 hover:text-white transition">Recommendations</Link></li>
+                </ul>
+              </div>
+            </div>
+            {/* Connect full row */}
+            <div className="grid grid-cols-1">
+              <div>
+                <p className="text-lg font-medium text-white mb-2">Connect</p>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="/sponsor" className="text-gray-300 hover:text-white transition">Sponsor</Link></li>
+                  <li><Link href="#newsletter" className="text-gray-300 hover:text-white transition">Newsletter</Link></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
