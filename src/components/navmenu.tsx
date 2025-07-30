@@ -23,29 +23,30 @@ const menuItems: MenuItem[] = [
     children: [
       { id: '5.1', title: 'Lightning Talks', href: '/events/lightning-talks' },
       { id: '5.2', title: 'Panel Discussions', href: '/events/panel-discussions' },
-      { id: '5.3', title: 'Open Source 101', href: '/events/open-source-101' },
-      { id: '5.4', title: 'Workshops', href: '/events/workshops' },
-      { id: '5.5', title: 'Job Fair', href: '/events/job-fair' },
-      { id: '5.6', title: 'Speaker sessions', href: '/events/speaker-sessions' },
+      { id: '5.3', title: 'Tech Workshops', href: '/events/workshops' },
+      { id: '5.4', title: 'Open Source 101', href: '/events/opensource-101' },
+      { id: '5.5', title: 'Speaker Sessions', href: '/events/speaker-sections' },
+      { id: '5.6', title: 'Job Fair', href: '/events/jobfair' },
+      { id: '5.7', title: 'Game Zone', href: '/events/gamezones/bug-fixing' },
     ]
   },
   {
     id: '7',
     title: 'Game Zones',
     children: [
-      { id: '7.1', title: 'Typing Challenge', href: '/gamezones/typing-challenge' },
-      { id: '7.2', title: 'Bug Fixing Race', href: '/gamezones/bug-fixing-race' },
-      { id: '7.3', title: 'Command line quiz', href: '/gamezones/commandline-quiz' },
-      { id: '7.4', title: 'Opensource Quiz', href: '/gamezones/opensource-quiz' },
-      { id: '7.5', title: 'Regex writing', href: '/gamezones/regex-writing' },
+      { id: '7.1', title: 'Typing Challenge', href: '/events/gamezones/typing-challenge' },
+      { id: '7.2', title: 'Bug Fixing Race', href: '/events/gamezones/bug-fixing' },
+      { id: '7.3', title: 'Command line quiz', href: '/events/gamezones/commandline-tasks' },
+      { id: '7.4', title: 'Opensource Quiz', href: '/events/gamezones/opensource-quiz' },
+      { id: '7.5', title: 'Regex writing', href: '/events/gamezones/regex-writing' },
     ]
   },
   {
     id: '8',
     title: 'Venue',
     children: [
-      { id: '8.1', title: 'Travel to Bangalore', href: '/venue/travel' },
-      { id: '8.2', title: 'Local recommendation', href: '/venue/local' },
+      { id: '8.1', title: 'Travel to Bangalore', href: '/venue/banglore' },
+      { id: '8.2', title: 'Local recommendation', href: '/venue/recommendation' },
       { id: '8.3', title: 'Hotels & Accommodation', href: '/venue/hotels' },
     ]
   },
