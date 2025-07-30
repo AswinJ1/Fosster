@@ -286,14 +286,15 @@ export default function FOSSterHeader() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-base sm:text-lg lg:text-xl font-bold truncate"
-            style={{ height: "40px" }}
+            className="flex items-center gap-2 text-2xl sm:text-3xl lg:text-4xl font-bold truncate"
+            style={{ height: "58px" }}
           >
+            {/* Replace text logo with image */}
             <img
-              src="/logo.jpg"
-              alt="Fosster Logo"
-              className="h-38 w-38 object-contain bg-transparent -my-2"
-              style={{ background: "transparent" }}
+              src="/logoo.png"
+              alt="FOSSter Logo"
+              className="h-18c w-auto object-contain"
+              style={{ marginBottom: 0 }}
             />
           </Link>
 
