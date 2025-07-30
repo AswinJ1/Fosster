@@ -90,7 +90,7 @@ interface GridItemProps {
 const GridItem = ({ img, title, description }: GridItemProps) => {
   const eventRoutes: Record<string, string> = {
     "Lightning Talks": "/events/lightning-talks",
-    "Panel Discussions": "/events/panel-discussions",
+    "Panel Discussions": "/events/panel-discussion",
     "Tech Workshops": "/events/workshops",
     "Open Source 101": "/events/opensource-101",
     "Speaker Sessions": "/events/speaker-sections",
