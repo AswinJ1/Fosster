@@ -293,7 +293,7 @@ export default function FOSSterHeader() {
             <img
               src="/logoo.png"
               alt="FOSSter Logo"
-              className="h-18c w-auto object-contain"
+              className="h-18 w-auto object-contain"
               style={{ marginBottom: 0 }}
             />
           </Link>
