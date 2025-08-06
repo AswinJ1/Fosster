@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fosster.amfoss.in
+
+# Sitemaps
+Sitemap: https://fosster.amfoss.in/sitemap.xml
