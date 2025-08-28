@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Star, Wifi, Info, MapPin, ExternalLink } from 'lucide-react'
+import Image from "next/image";
 
 type Spot = {
   name: string
@@ -18,7 +19,7 @@ const spots: Spot[] = [
     category: 'Attractions',
     description: 'A majestic heritage palace with Tudor architecture.',
     rating: 4.5,
-    img: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&h=300&fit=crop',
+    img: '/palace.png',
     location: 'Bangalore Palace, Bengaluru, Karnataka, India',
   },
   {
@@ -26,7 +27,7 @@ const spots: Spot[] = [
     category: 'Attractions',
     description: 'Historical botanical garden with glasshouse & rare plants.',
     rating: 4.7,
-    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop',
+    img: '/lalbagh.jpg',
     location: 'Lal Bagh Botanical Garden, Bengaluru, Karnataka, India',
   },
   {
@@ -34,7 +35,7 @@ const spots: Spot[] = [
     category: 'Attractions',
     description: 'Imposing legislative building in neo-Dravidian style.',
     rating: 4.6,
-    img: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=300&fit=crop',
+    img: '/vidhana-soudha.jpg',
     location: 'Vidhana Soudha, Bengaluru, Karnataka, India',
   },
   {
@@ -42,7 +43,7 @@ const spots: Spot[] = [
     category: 'Attractions',
     description: 'Large green lung of the city with walking paths and heritage buildings.',
     rating: 4.4,
-    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop',
+    img: '/cubbon-park.jpg',
     location: 'Cubbon Park, Bengaluru, Karnataka, India',
   },
   // Food
@@ -51,7 +52,7 @@ const spots: Spot[] = [
     category: 'Food',
     description: 'Lively area with vibrant eateries & cafes.',
     rating: 4.4,
-    img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop',
+    img: '/koramangala-food.jpg',
     location: 'Koramangala, Bengaluru, Karnataka, India',
   },
   {
@@ -59,7 +60,7 @@ const spots: Spot[] = [
     category: 'Food',
     description: 'South Indian vegetarian cuisine with authentic flavors.',
     rating: 4.3,
-    img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop',
+    img: '/udupi-restaurant.jpg',
     location: 'Udupi Restaurant near Bangalore',
   },
   {
@@ -67,7 +68,7 @@ const spots: Spot[] = [
     category: 'Food',
     description: 'Popular street with diverse restaurants and cafes.',
     rating: 4.5,
-    img: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop',
+    img: '/brigade-road-cafes.jpg',
     location: 'Brigade Road, Bengaluru, Karnataka, India',
   },
   {
@@ -75,7 +76,7 @@ const spots: Spot[] = [
     category: 'Food',
     description: 'Nightlife hub with pubs, bars and late-night eateries.',
     rating: 4.2,
-    img: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop',
+    img: '/indiranagar-pubs.jpg',
     location: 'Indiranagar, Bengaluru, Karnataka, India',
   },
   // Shopping
@@ -84,7 +85,7 @@ const spots: Spot[] = [
     category: 'Shopping',
     description: 'Bustling market for clothes, jewelry & street shopping.',
     rating: 4.5,
-    img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop',
+    img: '/commercial-street.jpg',
     location: 'Commercial Street, Bengaluru, Karnataka, India',
   },
   {
@@ -92,7 +93,7 @@ const spots: Spot[] = [
     category: 'Shopping',
     description: 'Traditional silk saree market with rich heritage.',
     rating: 4.2,
-    img: 'https://images.unsplash.com/photo-1583846112692-e8f52e9b1baa?w=400&h=300&fit=crop',
+    img: '/chickpet-silk.jpg',
     location: 'Chickpet, Bengaluru, Karnataka, India',
   },
   {
@@ -100,7 +101,7 @@ const spots: Spot[] = [
     category: 'Shopping',
     description: 'Luxury shopping mall with premium brands and dining.',
     rating: 4.6,
-    img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
+    img: '/ub-city-mall.jpg',
     location: 'UB City Mall, Bengaluru, Karnataka, India',
   },
   {
@@ -108,7 +109,7 @@ const spots: Spot[] = [
     category: 'Shopping',
     description: 'Popular shopping destination with brands, food court and entertainment.',
     rating: 4.3,
-    img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=400&h=300&fit=crop',
+    img: '/forum-mall.jpg',
     location: 'Forum Mall, Bengaluru, Karnataka, India',
   },
 ]
@@ -191,14 +192,19 @@ export default function ExploreBangalore() {
         {filtered.map((spot, i) => (
           <div key={i} className="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition group">
             <div className="relative overflow-hidden">
-              <img 
-                src={spot.img} 
-                alt={spot.name} 
-                className="h-40 w-full object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer" 
+              <Image
+                src={spot.img}
+                alt={spot.name}
+                width={400}
+                height={160}
+                className="h-40 w-full object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                 onClick={() => openInGoogleMaps(spot.location)}
+                style={{ objectFit: "cover" }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
-                   onClick={() => openInGoogleMaps(spot.location)}>
+              <div
+                className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+                onClick={() => openInGoogleMaps(spot.location)}
+              >
                 <div className="bg-white bg-opacity-90 px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-blue-600" />
                   <span className="text-sm font-medium text-gray-800">View on Maps</span>

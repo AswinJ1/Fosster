@@ -64,25 +64,43 @@ export default function DiscordSection4() {
               {sections.map(({ id, icon, title, content }) => (
                 <div
                   key={id}
-                  className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:shadow-md transition"
+                  className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <button
                     onClick={() => toggleSection(id)}
-                    className="flex items-center justify-between w-full text-left"
+                    className="flex items-center justify-between w-full text-left group"
                   >
                     <div className="flex items-center gap-3">
-                      {icon}
-                      <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+                      <div className="transition-transform duration-200 group-hover:scale-110">
+                        {icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-200 group-hover:text-gray-900">
+                        {title}
+                      </h3>
                     </div>
-                    <span className="text-gray-400 text-xl">
+                    <span 
+                      className={`text-gray-400 text-xl font-light transition-all duration-300 ${
+                        openSection === id 
+                          ? 'rotate-180 text-gray-600' 
+                          : 'rotate-0 group-hover:text-gray-600'
+                      }`}
+                    >
                       {openSection === id ? '−' : '+'}
                     </span>
                   </button>
-                  {openSection === id && (
-                    <div className="mt-4 text-gray-700">
+                  
+                  {/* Animated Content */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      openSection === id 
+                        ? 'max-h-96 opacity-100 mt-4' 
+                        : 'max-h-0 opacity-0 mt-0'
+                    }`}
+                  >
+                    <div className="text-gray-700 leading-relaxed animate-in slide-in-from-top-2 duration-300">
                       {content}
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -91,16 +109,16 @@ export default function DiscordSection4() {
           {/* Right Content - Mobile Chat Interface */}
           <div className="relative flex justify-center lg:justify-end order-1 lg:order-2">
             {/* Mobile Device */}
-            <div className="relative">
-              <img src="/new.png" alt="" />             
+            <div className="relative animate-in fade-in slide-in-from-right-8 duration-700">
+              <img src="/new.png" alt="" className="transition-transform duration-300 hover:scale-105" />             
             </div>
           </div>
         </div>
       </div>
       
-      {/* Background decorative elements */}
-      <div className="absolute top-12 left-16 w-32 h-32 bg-red-100 rounded-full opacity-30"></div>
-      <div className="absolute bottom-20 right-12 w-24 h-24 bg-pink-100 rounded-full opacity-40"></div>
+      {/* Background decorative elements with animation */}
+      <div className="absolute top-12 left-16 w-32 h-32 bg-red-100 rounded-full opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-20 right-12 w-24 h-24 bg-pink-100 rounded-full opacity-40 animate-bounce"></div>
     </section>
   );
 }

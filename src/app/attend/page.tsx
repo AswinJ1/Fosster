@@ -16,14 +16,18 @@ import ScrollContainer from "react-indiana-drag-scroll";
 const StyledCard = styled.div`
   background: white;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 1.5rem;
   transition: all 0.3s ease;
   border: 1px solid #f0f0f0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px; /* Set minimum height */
   
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    // box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     border-color: #3b82f6;
   }
   
@@ -35,6 +39,7 @@ const StyledCard = styled.div`
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    flex-shrink: 0;
   }
   
   &:hover .icon-container {
@@ -48,6 +53,7 @@ const StyledCard = styled.div`
     text-align: center;
     margin-bottom: 0.75rem;
     transition: color 0.3s ease;
+    flex-shrink: 0;
   }
   
   p {
@@ -56,6 +62,10 @@ const StyledCard = styled.div`
     font-size: 0.875rem;
     line-height: 1.5;
     opacity: 0.8;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   &:hover p {
@@ -202,13 +212,15 @@ const Attend = () => {
         {/* Desktop view - Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {cardData.map((card, index) => (
-            <div key={index} className="pt-2">
+            <div key={index} className="pt-2 h-full">
               <Fade triggerOnce direction={index%2===0 ? "up" : "down"} delay={index*200}>
-                <Card
-                  icon={card.icon}
-                  title={card.title}
-                  desc={card.desc}
-                />
+                <div className="h-full">
+                  <Card
+                    icon={card.icon}
+                    title={card.title}
+                    desc={card.desc}
+                  />
+                </div>
               </Fade>
             </div>
           ))}
@@ -219,7 +231,7 @@ const Attend = () => {
           <ScrollContainer vertical={false} className="scroll-container">
             <div className="flex p-3 gap-4 pt-5">
               {cardData.map((card, index) => (
-                <div key={index} className="flex-shrink-0" style={{ width: "280px" }}>
+                <div key={index} className="flex-shrink-0 h-full" style={{ width: "280px", height: "300px" }}>
                   <Fade triggerOnce direction={index%2===0 ? "up" : "down"} delay={index*200}>
                     <Card
                       icon={card.icon}
@@ -264,36 +276,90 @@ const Attend = () => {
       </div>
 
       {/* Add-Ons Section */}
-      <div className="mt-20 text-center max-w-3xl mx-auto">
-        <h3 className="text-2xl font-bold mb-4">Additional Add-Ons: Workshop Access</h3>
-        <p className="text-base mb-6">
-          Enhance your FOSSter 2025 experience with hands-on learning! Purchase access to individual workshops to dive deeper into specific topics.
-        </p>
-        <ul className="text-left text-sm space-y-3">
-          <li className="flex items-center gap-2">
-            <GraduationCap className="text-blue-600" size={18} />
-            General Workshop Access: <strong>₹699</strong> per workshop
-          </li>
-          <li className="flex items-center gap-2">
-            <GraduationCap className="text-blue-600" size={18} />
-            Workshop Access for <strong>Elite Pass</strong> holders: ₹299 per workshop
-          </li>
-          <li className="flex items-center gap-2">
-            <GraduationCap className="text-blue-600" size={18} />
-            Workshop Access for <strong>Standard Pass</strong> holders: ₹399 per workshop
-          </li>
-          <li className="flex items-center gap-2 text-red-500 font-medium">
-            <AlertTriangle className="text-red-500" size={18} />
-            Requires a valid base ticket (Standard, Elite, or Premium)
-          </li>
-        </ul>
-        <a
-          href="#"
-          className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
-        >
-          REGISTER NOW!
-        </a>
+      {/* Add-Ons Section */}
+<div className="mt-24 bg-gray-50 py-16">
+  <div className="max-w-4xl mx-auto px-6">
+    {/* Header */}
+    <div className="text-center mb-12">
+      <h3 className="text-3xl font-semibold mb-4 text-gray-900">Workshop Add-Ons</h3>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        Enhance your FOSSter 2025 experience with hands-on learning sessions led by industry experts.
+      </p>
+    </div>
+
+    {/* Pricing Table */}
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+        
+        {/* General Access */}
+        <div className="p-8">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-blue-50 rounded-lg">
+                <GraduationCap className="text-blue-600" size={20} />
+              </div>
+              <span className="font-medium text-gray-900">General Access</span>
+            </div>
+            <span className="text-2xl font-semibold text-gray-900">₹699</span>
+          </div>
+          <p className="text-sm text-gray-500">per workshop</p>
+        </div>
+
+        {/* Pass Holders */}
+        <div className="p-8 space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-green-50 rounded-lg">
+                <Users className="text-green-600" size={20} />
+              </div>
+              <span className="font-medium text-gray-900">Standard Pass</span>
+            </div>
+            <div className="text-right">
+              <span className="text-2xl font-semibold text-gray-900">₹399</span>
+              <div className="text-xs text-green-600 font-medium">43% OFF</div>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-blue-50 rounded-lg">
+                <GraduationCap className="text-blue-600" size={20} />
+              </div>
+              <span className="font-medium text-gray-900">Elite Pass</span>
+            </div>
+            <div className="text-right">
+              <span className="text-2xl font-semibold text-gray-900">₹299</span>
+              <div className="text-xs text-green-600 font-medium">57% OFF</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    {/* Important Notice */}
+    <div className="bg-red-50 border border-red-100 rounded-lg p-4 mb-8">
+      <div className="flex items-start gap-3">
+        <AlertTriangle className="text-red-500 flex-shrink-0" size={18} />
+        <div>
+          <p className="text-sm text-red-800 font-medium">
+            Workshop access requires a valid base ticket (Standard, Elite, or Premium Pass)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* CTA */}
+    <div className="text-center">
+      <a
+        href="#"
+        className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <GraduationCap size={18} />
+        Register for Workshops
+      </a>
+    </div>
+  </div>
+</div>
     </section>
   );
 };

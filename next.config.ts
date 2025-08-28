@@ -6,7 +6,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  
+  images: {
+    domains: ['images.unsplash.com'], // Add your image domains
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
+  },
+  // Enable image optimization
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;

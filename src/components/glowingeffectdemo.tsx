@@ -3,6 +3,8 @@
 import { GlowingEffect } from "@components/ui/glowing-effect";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 export function GlowingEffectDemo() {
   const items = [
@@ -70,10 +72,11 @@ export function GlowingEffectDemo() {
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {items.map((item, index) => (
           <GridItem
-            key={index}
+            key={`${item.title}-${index}`}
             img={item.img}
             title={item.title}
             description={item.description}
+            index={index}
           />
         ))}
       </ul>
@@ -85,9 +88,13 @@ interface GridItemProps {
   img: string;
   title: string;
   description: React.ReactNode;
+  index: number;
 }
 
-const GridItem = ({ img, title, description }: GridItemProps) => {
+const GridItem = ({ img, title, description, index }: GridItemProps & { index: number }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   const eventRoutes: Record<string, string> = {
     "Lightning Talks": "/events/lightning-talks",
     "Panel Discussions": "/events/panel-discussion",
@@ -111,14 +118,30 @@ const GridItem = ({ img, title, description }: GridItemProps) => {
           inactiveZone={0.01}
         />
         <div className="relative flex flex-1 flex-col gap-4 overflow-hidden rounded-xl bg-white dark:bg-gray-900 p-4 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-          {/* Image section */}
-          <div className="w-full h-32 md:h-36 rounded-lg overflow-hidden flex-shrink-0">
-            <img
+          {/* Image section with loading state */}
+          <div className="w-full h-32 md:h-36 rounded-lg overflow-hidden flex-shrink-0 relative bg-gray-100">
+            {!imageLoaded && !imageError && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+            )}
+
+            <Image
               src={img}
               alt={title}
-              className="object-cover object-center w-full h-full rounded-lg transition-transform duration-300 hover:scale-105"
-              draggable="false"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              className={`object-cover object-center rounded-lg transition-all duration-300 hover:scale-105 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              priority={index < 4}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
             />
+
+            {imageError && (
+              <div className="absolute inset-0 bg-gray-100 flex items-center justify-center rounded-lg">
+                <span className="text-gray-400 text-sm">Failed to load</span>
+              </div>
+            )}
           </div>
 
           {/* Text + Button section */}
